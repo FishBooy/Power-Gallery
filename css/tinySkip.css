@@ -1,0 +1,96 @@
+/*==========tinySkip==========*/
+.wrapper{
+	padding: 10px;
+	border: #cfccf 1px solid;
+}
+.tinySkip{
+	width: 200px;
+	background: #fff;
+}
+.tinySkip h2{
+	color: #1c1c1c;
+	display: block;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	height: 27px;
+	padding: 7px 0 0 0;
+	position: relative;
+	margin-bottom: 10px;
+
+}
+.tinySkip .operation{
+	position: absolute;
+	top: 9px;
+	right: 0;
+	font-size: 14px;
+	color: #ababab;
+	font-family: "宋体";
+	font-weight: normal;	
+}
+.tinySkip .operation a{
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			margin: 0 5px;
+			background: url(../img/skipBtn.png) 0 0 no-repeat;
+			text-indent: -999em;
+			zoom: 1;
+}
+.tinySkip .operation p{ display: inline-block;}
+.tinySkip .operation a#next{ background: url(../img/skipBtn.png) -18px 0 no-repeat;margin: 0 0 0 5px;}
+.tinySkip .operation a:hover{ background: url(../img/skipBtn.png) 0 -18px no-repeat;}
+.tinySkip .operation a#next:hover{ background: url(../img/skipBtn.png) -18px -18px no-repeat;}
+
+
+
+.tinySkip .skipWrapper img {
+	width: 200px;
+	height: 120px;
+	border: none;
+}
+.tinySkip .skipWrapper div.skipImg{
+	position: relative;
+	display: none;
+	zoom: 1;
+}
+.tinySkip .skipWrapper div.curImg{
+	display: block;
+}
+.tinySkip .skipWrapper div a{
+	display: block;
+}
+.tinySkip .skipWrapper div div{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: block;
+	font-size: 14px;
+	text-align: center;
+	background: #000;
+	opacity: 0.6; 
+	filter:alpha(opacity=60);
+}
+.tinySkip .skipWrapper div div a{
+	text-decoration: none;
+	color: #fff;
+	width: 200px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.tinySkip .skipWrapper a img{
+	width: 200px;
+	height: 120px;
+	border: none;
+}
+/*hacks for IE6*/
+* html .tinySkip .operation{
+	overflow: hidden;
+	zoom: 1;
+}
+* html .tinySkip .operation a,
+* html .tinySkip .operation p,
+{
+	display: block;
+	float: left;
+} 

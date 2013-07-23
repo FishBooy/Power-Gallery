@@ -1,0 +1,209 @@
+
+/*reset styles*/
+body,div,p,ul,ol,h2,a,span,img{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #f3f3f3;
+}
+li{ list-style: none;}
+img{ border: none;}
+a{
+	text-decoration: none;
+}
+
+/*===========tinySlide===========*/
+
+.slideWrapper{
+	width: 360px;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+.slideWrapper li{
+	float: left;
+}
+.slideWrapper li a{ display: block;}
+.slideWrapper .slideGallery{
+	overflow: hidden;
+	zoom: 1;
+	width: 3250px;
+}
+.slideWrapper .xShadow,
+.slideWrapper .yShadow
+{
+	position: absolute;
+	bottom: 0;
+	background: #000;
+	opacity: 0.4;
+	filter:alpha(opacity=40);
+}
+.slideWrapper .yShadow{
+	bottom: 0;
+	right: 0;
+}
+.slideWrapper .xTitle{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	overflow: hidden;
+}
+.slideWrapper .yTitle{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+}
+.slideWrapper .xTitle a,
+.slideWrapper .yTitle a
+{
+	color: #fff;
+	font-size: 14px;
+	text-decoration: none;
+	display: none;
+}
+.slideWrapper .yTitle a{
+	font-size: 12px;
+	line-height: 18px;
+}
+.slideWrapper .yTitle a span{
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+	padding: 5px 0;
+}
+.slideWrapper .xTitle a.curInfo,
+.slideWrapper .yTitle a.curInfo{ display: inline;}
+
+.slideWrapper .yTitle p{
+	display: none;
+}
+.slideWrapper .yTitle p.curInfo{
+	display: inline;
+}
+.slideWrapper .yTitle p a{
+	padding: 0;
+	margin: 10px;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bold;
+	display: block;
+}
+.slideWrapper .yTitle p span{
+	display: block;
+	padding: 0;
+	margin: 0;
+	line-height: 18px;
+	font-size: 12px;
+	color: #fff;
+	padding: 0 5px 0 5px;
+}
+
+.slideWrapper .btnCircle,
+.slideWrapper .btnRectangle
+{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	zoom: 1;
+}
+.slideWrapper .btnRectangle{
+	text-align: center;
+}
+
+.slideWrapper .btnCircle a,
+.slideWrapper .btnRectangle a
+{
+	display: block;
+	width: 14px;
+	height: 14px;
+	margin-right: 2px;
+	background-color: #fafafa;
+	font-family: "微软雅黑",宋体, sans-serif;
+	font-size: 14px;
+	line-height: 14px;
+	/*font-weight: bold;*/
+	color: #916330;
+	text-indent:-10em;
+	overflow:hidden;
+	background:#e2e2e2;
+
+}
+.slideWrapper .btnCircle a.on,
+.slideWrapper .btnRectangle a.on{
+	color: #fff;
+}
+.slideWrapper .hasTxt a{
+	text-indent: 0;
+}
+.slideWrapper .btnCircle a{
+	border-radius:50px;
+	-moz-box-shadow:1px 1px 1px #A9A9A9 inset;
+	-webkit-box-shadow:1px 1px 1px #A9A9A9 inset;
+	box-shadow:1px 1px 1px #A9A9A9 inset;
+}
+
+.slideWrapper .btnCircle a.on{
+	background-color: #b6d5e8;
+	-moz-box-shadow:1px 1px 1px #974b00 inset;
+	-webkit-box-shadow:1px 1px 1px #974b00 inset;
+	box-shadow:1px 1px 1px #974b00 inset;
+	background:#ff9626;
+}
+.slideWrapper .btnRectangle a.on{
+/* 	-moz-box-shadow:1px 1px 1px #974b00 inset;
+-webkit-box-shadow:1px 1px 1px #974b00 inset; */
+box-shadow: 0 1px 1px #733a05;
+	background:#ff9626;
+}
+
+.prevBtn,.nextBtn{
+	color: #fff;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	font-family: 宋体, sans-serif;
+	display: block;
+	width: 36px;
+	height: 34px;
+	background: #000;
+	opacity: 0.4;
+	filter:alpha(opacity=40);
+	position: absolute;
+	z-index: 999;
+	display: none;
+}
+a.prevBtn:hover,a.nextBtn:hover{
+	opacity: 0.9;
+	filter:alpha(opacity=80);
+	background: #ff9626;
+}
+.prevBtn{
+	left: 0;
+	top: 38%;
+}
+.nextBtn{
+	right: 0;
+	top: 38%;
+}
+/*styles for demo
+*使用插件时,demo的html标签和样式(以下)去掉
+*/
+.showDemo{
+	padding: 0 10px 10px 10px;
+	border: #cfcfcf 1px solid;
+	width: 200px;
+	background: #fff;
+	margin: 20px auto;
+}
+.slideDemo{
+	padding: 10px;
+	border: #cfcfcf 1px solid;
+	width: 360px;
+	background: #fff;
+	margin: 20px auto;
+}
+.sDemo2{
+	width: 360px;
+}

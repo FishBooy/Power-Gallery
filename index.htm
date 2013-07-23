@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<head></head>
+<title>tinySlide-demo</title>
+
+<link rel="stylesheet" type="text/css" href="css/tinyStyles.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-tinyShow.js"></script>
+
+<script type="text/javascript">
+	$().ready(function(){
+		$('.container').tinySlide({
+			btnShape:'circle',
+			btnTxt: false
+		});
+		$('.container2').tinySlide({
+			txtDir:'Y',
+			btnShape:'circle'
+		});
+	})
+</script>
+<body>
+
+<!-- <div class="slideDemo sDemo2"> -->
+	<!--HTML FOR 'jQuery-tinySlide' START-->
+	<div class="container">
+		<ul>
+			<li><a href=""><img src="img/slider06.jpg" alt="爱情里的粉红色" /></a></li>
+			<li><a href=""><img src="img/slider04.jpg" alt="一摞记忆的照片" /></a></li>
+			<li><a href=""><img src="img/slider01.jpg" alt="海边的风车" /></a></li>
+			<li><a href=""><img src="img/slider02.jpg" alt="爱情里的粉红色" /></a></li>
+			<li><a href=""><img src="img/slider03.jpg" alt="一摞记忆的照片" /></a></li>
+			<li><a href=""><img src="img/slider05.jpg" alt="海边的风车" /></a></li>
+		</ul>
+		<div></div>
+		<p></p>
+		<ol></ol>	
+	</div>
+	<!--HTML FOR 'jQuery-tinySlide' END-->
+<!-- </div> -->
+
+<div class="slideDemo sDemo2">
+	<div class="container2">
+		<ul>
+			<li><a href=""><img src="img/slider02.jpg" alt="收获的温暖风光" /></a></li>
+			<li><a href=""><img src="img/slider03.jpg" alt="黄昏中的女孩" /></a></li>
+			<li><a href=""><img src="img/slider05.jpg" alt="山间的河流" /></a></li>
+		</ul>
+		<div></div>
+		<div>
+			<p><a href="">收获的风光</a><span>收获的温暖风光收获的温暖风光收获的温暖风光</span></p>
+			<p><a href="">黄昏中的女孩</a><span>黄昏中的女孩黄昏中的女孩黄昏中的女孩</span></p>
+			<p><a href="">山间的河流</a><span>山间的河流山间的河流山间的河流山间的河流</span></p>
+		</div>
+		<ol></ol>	
+	</div>
+</div>
+
+	
+</body>
+</html>
