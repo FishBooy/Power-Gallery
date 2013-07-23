@@ -92,7 +92,7 @@
 						.appendTo($(this)) : false
 				};
 
-			//动画所需数据
+			//动画所需参数
 			var Data = {
 				target: null,
 				begin: insDom.slideGallery.getCss('marginLeft'),
