@@ -170,12 +170,22 @@
 								var destination;
 								e.preventDefault()
 								if (e.data.Event == 'next') {
-									if (Data.begin == (extPar.mounts - 1) * Data.cFixed) {
+									var num = Data.begin / Data.cFixed ;
+									if (parseInt(num)==(extPar.mounts - 1)||num==extPar.mounts) {
 										return false;
 									} else {
-										var num = parseInt(Data.begin / Data.cFixed + 1);
-										destination = num * Data.cFixed;
-										Move.classNam(num);
+										/*next平滑的方式是判断（Data.begin / Data.cFixed）为浮点还是整型
+										**整型则+1，浮点型+2(num=...表达式中)
+										**/
+										
+										if(num==parseInt(num)){
+											inte=parseInt(num)+1;
+										}else{
+											inte=parseInt(num)+2
+										};
+										destination = inte * Data.cFixed;
+										console.log(destination)
+										Move.classNam(inte);
 									}
 								} else {
 									if (Data.begin == 0) {
