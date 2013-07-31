@@ -171,7 +171,7 @@
 								e.preventDefault()
 								if (e.data.Event == 'next') {
 									var num = Data.begin / Data.cFixed ;
-									if (parseInt(num)==(extPar.mounts - 1)||num==extPar.mounts) {
+									if (num==extPar.mounts) {
 										return false;
 									} else {
 										/*next平滑的方式是判断（Data.begin / Data.cFixed）为浮点还是整型
@@ -181,7 +181,12 @@
 										if(num==parseInt(num)){
 											inte=parseInt(num)+1;
 										}else{
-											inte=parseInt(num)+2
+											if(parseInt(num)==(extPar.mounts - 2)){
+												inte=parseInt(num)+1
+											}else{
+												inte=parseInt(num)+2
+											}
+											
 										};
 										destination = inte * Data.cFixed;
 										console.log(destination)
