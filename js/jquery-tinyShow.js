@@ -172,7 +172,7 @@
 								if (e.data.Event == 'next') {
 									var num = Data.begin / Data.cFixed ;
 									if (Data.begin == (extPar.mounts - 1) * Data.cFixed) {
-										return false;
+										// return false;//会阻止自动运行
 									} else {
 										/*next平滑的方式是判断（Data.begin / Data.cFixed）为浮点还是整型
 										**整型则+1，浮点型+2(num=...表达式中)
@@ -194,7 +194,7 @@
 									}
 								} else {
 									if (Data.begin == 0) {
-										return false
+										// return false;//会阻止自动运行
 									} else {
 										destination = parseInt(Data.begin / Data.cFixed - 1) * Data.cFixed;
 										Move.classNam();
