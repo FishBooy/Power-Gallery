@@ -245,7 +245,7 @@
 							}
 
 						} else {
-							var next = Data.begin / Data.cFixed
+							var next = parseInt(Data.begin / Data.cFixed);
 							$('a', insDom.buttons).eq(next).addClass('on')
 							if (extPar.txtDir == 'X') {
 								$('a', insDom.txt).eq(next).addClass('curInfo');
