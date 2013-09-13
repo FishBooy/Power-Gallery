@@ -49,7 +49,7 @@
 				txtDir: 'X',
 				shaHeight: 36,
 				btnShape: 'circle',
-				btnTxt: false,
+				btnTxt: true,
 				dirArrow: true,
 				auto: true,
 				timeId: null,
@@ -189,6 +189,7 @@
 											
 										};
 										destination = inte * Data.cFixed;
+										console.log(destination)
 										Move.classNam(inte);
 									}
 								} else {
