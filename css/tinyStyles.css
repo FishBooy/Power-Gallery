@@ -12,26 +12,25 @@ img{ border: none;}
 a{
 	text-decoration: none;
 }
-
-/*===========tinySlide===========*/
-
-.slideWrapper{
+.container{
 	width: 360px;
 	height: 200px;
+}
+/*===========tinySlide===========*/
+
+.Gallery{
 	overflow: hidden;
 	position: relative;
 }
-.slideWrapper li{
+.Gallery li{
 	float: left;
 }
-.slideWrapper li a{ display: block;}
-.slideWrapper .slideGallery{
+.Gallery li a{ display: block;}
+.Gallery .imgs-container{
 	overflow: hidden;
 	zoom: 1;
-	width: 3250px;
 }
-.slideWrapper .xShadow,
-.slideWrapper .yShadow
+.Gallery .shadow
 {
 	position: absolute;
 	bottom: 0;
@@ -39,81 +38,30 @@ a{
 	opacity: 0.4;
 	filter:alpha(opacity=40);
 }
-.slideWrapper .yShadow{
-	bottom: 0;
-	right: 0;
-}
-.slideWrapper .xTitle{
+.Gallery .title{
 	position: absolute;
 	bottom: 10px;
 	left: 10px;
 	overflow: hidden;
 }
-.slideWrapper .yTitle{
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	overflow: hidden;
-}
-.slideWrapper .xTitle a,
-.slideWrapper .yTitle a
+.Gallery .title a
 {
 	color: #fff;
 	font-size: 14px;
 	text-decoration: none;
 	display: none;
 }
-.slideWrapper .yTitle a{
-	font-size: 12px;
-	line-height: 18px;
-}
-.slideWrapper .yTitle a span{
-	font-size: 14px;
-	font-weight: bold;
-	display: block;
-	padding: 5px 0;
-}
-.slideWrapper .xTitle a.curInfo,
-.slideWrapper .yTitle a.curInfo{ display: inline;}
-
-.slideWrapper .yTitle p{
-	display: none;
-}
-.slideWrapper .yTitle p.curInfo{
+.Gallery .title a.curInfo{ 
 	display: inline;
 }
-.slideWrapper .yTitle p a{
-	padding: 0;
-	margin: 10px;
-	font-size: 12px;
-	line-height: 18px;
-	font-weight: bold;
-	display: block;
-}
-.slideWrapper .yTitle p span{
-	display: block;
-	padding: 0;
-	margin: 0;
-	line-height: 18px;
-	font-size: 12px;
-	color: #fff;
-	padding: 0 5px 0 5px;
-}
-
-.slideWrapper .btnCircle,
-.slideWrapper .btnRectangle
+.Gallery .buttons
 {
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
 	zoom: 1;
 }
-.slideWrapper .btnRectangle{
-	text-align: center;
-}
-
-.slideWrapper .btnCircle a,
-.slideWrapper .btnRectangle a
+.Gallery .buttons a
 {
 	display: block;
 	width: 14px;
@@ -130,35 +78,20 @@ a{
 	background:#e2e2e2;
 
 }
-.slideWrapper .btnCircle a.on,
-.slideWrapper .btnRectangle a.on{
-	color: #fff;
-}
-.slideWrapper .hasTxt a{
-	text-indent: 0;
-}
-.slideWrapper .btnCircle a{
+.Gallery .buttons a{
 	border-radius:50px;
 	-moz-box-shadow:1px 1px 1px #A9A9A9 inset;
 	-webkit-box-shadow:1px 1px 1px #A9A9A9 inset;
 	box-shadow:1px 1px 1px #A9A9A9 inset;
 }
-
-.slideWrapper .btnCircle a.on{
+.Gallery .buttons a.on{
 	background-color: #b6d5e8;
 	-moz-box-shadow:1px 1px 1px #974b00 inset;
 	-webkit-box-shadow:1px 1px 1px #974b00 inset;
 	box-shadow:1px 1px 1px #974b00 inset;
 	background:#ff9626;
 }
-.slideWrapper .btnRectangle a.on{
-/* 	-moz-box-shadow:1px 1px 1px #974b00 inset;
--webkit-box-shadow:1px 1px 1px #974b00 inset; */
-box-shadow: 0 1px 1px #733a05;
-	background:#ff9626;
-}
-
-.prevBtn,.nextBtn{
+.prev-btn,.next-btn{
 	color: #fff;
 	font-size: 30px;
 	text-align: center;
@@ -174,36 +107,26 @@ box-shadow: 0 1px 1px #733a05;
 	z-index: 999;
 	display: none;
 }
-a.prevBtn:hover,a.nextBtn:hover{
+a.prev-btn:hover,a.next-btn:hover{
 	opacity: 0.9;
 	filter:alpha(opacity=80);
 	background: #ff9626;
 }
-.prevBtn{
+.prev-btn{
 	left: 0;
 	top: 38%;
 }
-.nextBtn{
+.next-btn{
 	right: 0;
 	top: 38%;
 }
 /*styles for demo
-*使用插件时,demo的html标签和样式(以下)去掉
+*使用插件时,demo的html标签和样式都可以为去掉
 */
-.showDemo{
-	padding: 0 10px 10px 10px;
-	border: #cfcfcf 1px solid;
-	width: 200px;
-	background: #fff;
-	margin: 20px auto;
-}
-.slideDemo{
+.slide-demo{
 	padding: 10px;
 	border: #cfcfcf 1px solid;
 	width: 360px;
 	background: #fff;
 	margin: 20px auto;
-}
-.sDemo2{
-	width: 360px;
 }

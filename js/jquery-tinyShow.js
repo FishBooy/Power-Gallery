@@ -41,15 +41,12 @@
 
 			//设置默认参数，插入所需DOM
 			var genSets = {
-				container: $(this).addClass('slideWrapper'),
-				width: $(this).getCss('width'),
-				height: $(this).getCss('height'),
+				container: $(this).addClass('Gallery'),
+				width: $(this).width(),
+				height: $(this).height(),
 				mounts: $('img', this).length,
 				animation: 'slide',
-				txtDir: 'X',
 				shaHeight: 36,
-				btnShape: 'circle',
-				btnTxt: false,
 				dirArrow: true,
 				auto: true,
 				timeId: null,
@@ -58,8 +55,8 @@
 			},
 				extPar = $.extend({}, genSets, insDom, opt ? opt : {}),
 				insDom = {
-					slideGallery: $('ul', $(this))
-						.addClass('slideGallery')
+					imgsContainer: $('ul', $(this))
+						.addClass('imgs-container')
 						.css('width', extPar.mounts * extPar.width),
 					slideImages: $('img', $(this)).css({
 						width: extPar.width,
@@ -67,35 +64,23 @@
 					}),
 					shadow: $('div', $(this))
 						.eq(0)
-						.addClass(extPar.txtDir === 'X' ? 'xShadow' : 'yShadow')
+						.addClass('shadow')
 						.css({
-							width: (extPar.txtDir === 'X' ? extPar.width : extPar.width / 4),
-							height: (extPar.txtDir === 'X' ? extPar.shaHeight : extPar.height)
+							width: extPar.width,
+							height: extPar.shaHeight
 						}),
-					txt: extPar.txtDir === 'X' ? $('p', $(this))
-						.addClass('xTitle') : $('div', $(this))
-						.eq(1)
-						.addClass('yTitle')
-						.css({
-							width: extPar.width / 4,
-							height: 200
-						}),
+					txt: $('p', $(this))
+						.addClass('title'),
 					buttons: $('ol', $(this))
-						.addClass('btn' + (extPar.btnShape === 'circle' ? 'Circle' : 'Rectangle'))
-						.addClass(extPar.btnTxt ? 'hasTxt' : '')
-						.css({
-							width: (
-								extPar.btnShape === 'circle' ? 'auto' : ($('div', $(this)).eq(1).hasClass('yTitle') ? extPar.width / 4 : 'auto')
-							)
-						}),
-					arrows: extPar.dirArrow ? $('<a href="" class="prevBtn"><</a><a href="" class="nextBtn">></a>')
+						.addClass('buttons'),
+					arrows: extPar.dirArrow ? $('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>')
 						.appendTo($(this)) : false
 				};
 
 			//动画所需参数
 			var Data = {
 				target: null,
-				begin: insDom.slideGallery.getCss('marginLeft'),
+				begin: insDom.imgsContainer.getCss('marginLeft'),
 				change: extPar.width * (-1),
 				cFixed: extPar.width * (-1),
 				duration: 40,
@@ -109,7 +94,7 @@
 
 						for (var i = 1; i <= extPar.mounts; i++) {
 							insDom.buttons.append('<li><a href="">' + i + '</a></li>');
-							extPar.txtDir === 'X' && insDom.txt.append('<a href="">' + insDom.slideImages.eq(i - 1).attr('alt') + '</a>')
+							insDom.txt.append('<a href="">' + insDom.slideImages.eq(i - 1).attr('alt') + '</a>')
 						};
 						$('a', insDom.txt).eq(0).addClass('curInfo');
 						$('p', insDom.txt).eq(0).addClass('curInfo');
@@ -130,10 +115,10 @@
 						});
 
 						if(extPar.dirArrow){
-							$('a.nextBtn', extPar.container).bind('click', {
+							$('a.next-btn', extPar.container).bind('click', {
 								Event: 'next'
 							}, Move.set);
-							$('a.prevBtn', extPar.container).bind('click', {
+							$('a.prev-btn', extPar.container).bind('click', {
 								Event: 'prev'
 							}, Move.set);
 							extPar.container
@@ -146,7 +131,7 @@
 									}
 								})
 								.contents()
-								.not('ul,a.prevBtn,a.nextBtn')
+								.not('ul,a.prev-btn,a.next-btn')
 								.not($('ul', extPar.container).contents())
 								.bind('mouseover', function(e) {
 									insDom.arrows.fadeOut(100)
@@ -160,7 +145,7 @@
 
 						clearTimeout(extPar.timeId);
 
-						Data.begin = insDom.slideGallery.getCss('marginLeft');
+						Data.begin = insDom.imgsContainer.getCss('marginLeft');
 						if (e == undefined) {
 							Data.change = (Data.begin == (extPar.mounts - 1) * Data.cFixed) ? -Data.begin : Data.cFixed;
 							Move.classNam();
@@ -224,7 +209,7 @@
 					run: function() {
 						if (Data.timer <= Data.duration) {
 							var position = Math.round(Tween.Quart.easeOut(Data.timer, Data.begin, Data.change, Data.duration))
-							insDom.slideGallery.css('marginLeft', position + 'px');
+							insDom.imgsContainer.css('marginLeft', position + 'px');
 							Data.timer++;
 							extPar.timeId = setTimeout(Move.run, Data.interval)
 						} else {
@@ -238,20 +223,14 @@
 						insDom.txt.find('.curInfo').removeClass('curInfo');
 						if (typeof index == 'number') {
 							$('a', insDom.buttons).eq(index).addClass('on')
-							if (extPar.txtDir == 'X') {
-								$('a', insDom.txt).eq(index).addClass('curInfo');
-							} else {
-								$('p', insDom.txt).eq(index).addClass('curInfo');
-							}
+							$('a', insDom.txt).eq(index).addClass('curInfo');
+
 
 						} else {
 							var next = parseInt(Data.begin / Data.cFixed);
 							$('a', insDom.buttons).eq(next).addClass('on')
-							if (extPar.txtDir == 'X') {
-								$('a', insDom.txt).eq(next).addClass('curInfo');
-							} else {
-								$('p', insDom.txt).eq(next).addClass('curInfo');
-							}
+							$('a', insDom.txt).eq(next).addClass('curInfo');
+
 						}
 
 					}
