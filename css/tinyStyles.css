@@ -38,20 +38,20 @@ a{
 	opacity: 0.4;
 	filter:alpha(opacity=40);
 }
-.Gallery .title{
+.Gallery .titles{
 	position: absolute;
 	bottom: 10px;
 	left: 10px;
 	overflow: hidden;
 }
-.Gallery .title a
+.Gallery .titles a
 {
 	color: #fff;
 	font-size: 14px;
 	text-decoration: none;
 	display: none;
 }
-.Gallery .title a.curInfo{ 
+.Gallery .titles a.curInfo{ 
 	display: inline;
 }
 .Gallery .buttons

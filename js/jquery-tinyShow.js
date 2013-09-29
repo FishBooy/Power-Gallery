@@ -58,7 +58,7 @@
 					imgsContainer: $('ul', $(this))
 						.addClass('imgs-container')
 						.css('width', extPar.mounts * extPar.width),
-					slideImages: $('img', $(this)).css({
+					images: $('img', $(this)).css({
 						width: extPar.width,
 						height: extPar.height
 					}),
@@ -69,8 +69,8 @@
 							width: extPar.width,
 							height: extPar.shaHeight
 						}),
-					txt: $('p', $(this))
-						.addClass('title'),
+					titles: $('p', $(this))
+						.addClass('titles'),
 					buttons: $('ol', $(this))
 						.addClass('buttons'),
 					arrows: extPar.dirArrow ? $('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>')
@@ -94,10 +94,10 @@
 
 						for (var i = 1; i <= extPar.mounts; i++) {
 							insDom.buttons.append('<li><a href="">' + i + '</a></li>');
-							insDom.txt.append('<a href="">' + insDom.slideImages.eq(i - 1).attr('alt') + '</a>')
+							insDom.titles.append('<a href="">' + insDom.images.eq(i - 1).attr('alt') + '</a>')
 						};
-						$('a', insDom.txt).eq(0).addClass('curInfo');
-						$('p', insDom.txt).eq(0).addClass('curInfo');
+						$('a', insDom.titles).eq(0).addClass('curInfo');
+						$('p', insDom.titles).eq(0).addClass('curInfo');
 
 						$('a', insDom.buttons).eq(0).addClass('on');
 						$('a', insDom.buttons).each(function() {
@@ -220,21 +220,22 @@
 
 					classNam: function(index) {
 						insDom.buttons.find('a.on').removeClass('on');
-						insDom.txt.find('.curInfo').removeClass('curInfo');
+						insDom.titles.find('.curInfo').removeClass('curInfo');
 						if (typeof index == 'number') {
 							$('a', insDom.buttons).eq(index).addClass('on')
-							$('a', insDom.txt).eq(index).addClass('curInfo');
+							$('a', insDom.titles).eq(index).addClass('curInfo');
 
 
 						} else {
 							var next = parseInt(Data.begin / Data.cFixed);
 							$('a', insDom.buttons).eq(next).addClass('on')
-							$('a', insDom.txt).eq(next).addClass('curInfo');
+							$('a', insDom.titles).eq(next).addClass('curInfo');
 
 						}
 
 					}
 				};
+
 
 			Move.init();
 
