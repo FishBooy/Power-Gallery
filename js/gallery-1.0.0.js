@@ -1,4 +1,4 @@
-;
+/*==================gallery-1.0.0===================*/ ;
 (function($) {
 
 	//插件中用到的样式取值函数和动画算法
@@ -97,7 +97,6 @@
 							insDom.titles.append('<a href="">' + insDom.images.eq(i - 1).attr('alt') + '</a>')
 						};
 						$('a', insDom.titles).eq(0).addClass('curInfo');
-						$('p', insDom.titles).eq(0).addClass('curInfo');
 
 						$('a', insDom.buttons).eq(0).addClass('on');
 						$('a', insDom.buttons).each(function() {
@@ -111,10 +110,9 @@
 										Move.set()
 									}
 								})
-
 						});
 
-						if(extPar.dirArrow){
+						if (extPar.dirArrow) {
 							$('a.next-btn', extPar.container).bind('click', {
 								Event: 'next'
 							}, Move.set);
@@ -136,9 +134,8 @@
 								.bind('mouseover', function(e) {
 									insDom.arrows.fadeOut(100)
 									e.stopPropagation()
-								})							
+								})
 						}
-
 						if (extPar.auto) Move.set();
 					},
 					set: function(e) {
@@ -155,23 +152,21 @@
 								var destination;
 								e.preventDefault()
 								if (e.data.Event == 'next') {
-									var num = Data.begin / Data.cFixed ;
+									var num = Data.begin / Data.cFixed;
 									if (Data.begin == (extPar.mounts - 1) * Data.cFixed) {
 										// return false;//会阻止自动运行
 									} else {
 										/*next平滑的方式是判断（Data.begin / Data.cFixed）为浮点还是整型
-										**整型则+1，浮点型+2(num=...表达式中)
-										**/
-										
-										if(num==parseInt(num)){
-											inte=parseInt(num)+1;
-										}else{
-											if(parseInt(num)==(extPar.mounts - 2)){
-												inte=parseInt(num)+1
-											}else{
-												inte=parseInt(num)+2
+										 **整型则+1，浮点型+2(num=...表达式中)
+										 **/
+										if (num == parseInt(num)) {
+											inte = parseInt(num) + 1;
+										} else {
+											if (parseInt(num) == (extPar.mounts - 2)) {
+												inte = parseInt(num) + 1
+											} else {
+												inte = parseInt(num) + 2
 											}
-											
 										};
 										destination = inte * Data.cFixed;
 										Move.classNam(inte);
@@ -217,28 +212,20 @@
 							if (extPar.auto) Move.set();
 						}
 					},
-
 					classNam: function(index) {
 						insDom.buttons.find('a.on').removeClass('on');
 						insDom.titles.find('.curInfo').removeClass('curInfo');
 						if (typeof index == 'number') {
 							$('a', insDom.buttons).eq(index).addClass('on')
 							$('a', insDom.titles).eq(index).addClass('curInfo');
-
-
 						} else {
 							var next = parseInt(Data.begin / Data.cFixed);
 							$('a', insDom.buttons).eq(next).addClass('on')
 							$('a', insDom.titles).eq(next).addClass('curInfo');
-
 						}
-
 					}
 				};
-
-
 			Move.init();
-
 		})
 	}
 })(jQuery)
