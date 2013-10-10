@@ -15,7 +15,7 @@
 	 **无论func是变量赋值还是对象属性,this都是指向全局window对象！--
 	 **具体参见：https://developer.mozilla.org/zh-CN/docs/DOM/window.setTimeout
 	 **
-	 **针对该this问题,现用_setTimeout进行修正如slideRun和setBeforeSlide中:
+	 **针对该this问题,现用'匿名函数自行执行返回'进行修正如slideRun和setBeforeSlide中:
 	 **setTimeout((function(){return function(){self.slideRun()}})(),time)
 	 */
 	//滑动算法
@@ -229,7 +229,7 @@
 		}
 	};
 
-	//滑动
+	//滑动主体
 	Gallery.prototype.slideRun = function() {
 		var self = this;
 		if (this.timer <= this.opts.duration) {
