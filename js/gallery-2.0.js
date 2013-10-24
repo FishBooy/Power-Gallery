@@ -161,11 +161,7 @@
 			this.begin = this.getCss(this.imgsContainer, 'marginLeft');
 			this.change = (this.begin == (this.mounts - 1) * this.cFixed) ? -this.begin : this.cFixed;
 			this.alterClassName();
-			this.timeId = setTimeout((function() {
-				return function() {
-					self.slideRun()
-				}
-			})(), this.opts.pause)
+			this.timeId = setTimeout(function() {self.slideRun()}, this.opts.pause)
 		} else {
 			e.preventDefault();
 			var self = e.data.self;
@@ -236,11 +232,7 @@
 			var position = Math.round(this.Tween.Quart.easeOut(this.timer, this.begin, this.change, this.opts.duration))
 			this.imgsContainer.css('marginLeft', position + 'px');
 			this.timer++;
-			this.timeId = setTimeout((function() {
-				return function() {
-					self.slideRun()
-				}
-			})(), this.opts.interval)
+			this.timeId = setTimeout(function() {self.slideRun()}, this.opts.interval)
 		} else {
 			this.timer = 0;
 			this.auto && this.setBeforeSlide()
