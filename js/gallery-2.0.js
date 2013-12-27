@@ -243,7 +243,7 @@
 	//转化为jquery插件
 	$.fn.gallery = function(opts) {
 		return this.each(function() {
-			$(this).data('gallery') || $(this).data('gallery', new Gallery(opts ? {} : opts, $(this)))
+			$(this).data('gallery') || $(this).data('gallery', new Gallery(opts ? opts : {}, $(this)))
 		});
 	}
 })(jQuery);
