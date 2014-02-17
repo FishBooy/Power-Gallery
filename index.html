@@ -71,7 +71,24 @@
 <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </pre></div>
 
-<p>第二种：在“</p>
+<p>第二种：在body标签结束之前，初始化代码如下：</p>
+
+<div class="highlight highlight-javascript"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript"</span><span class="o">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span><span class="c1">//此处类名对应上一步中html中的类名</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</pre></div>
+
+<p>至此，一个焦点图小组件应该可以正常显示在你的页面中了。它包含了标题，方向按钮，水平滚动的动画效果等等，但是如果你想延迟滑动的等待时间，或者想在序号按钮中显示出数字等等，那么你可以参考本文下面的部分：配置参数。    </p>
+
+<h2>
+<a name="%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0" class="anchor" href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="octicon octicon-link"></span></a>配置参数</h2>
+
+<ul>
+<li>shaHeight: 取整数值，表示标题阴影背景的高度，默认高度为36即36px。</li>
+<li>hasArrow: 取布尔值，true代表有方向按钮，false代表没有。</li>
+<li>pause: 取整数值，滑动之前的等待时间。默认为2000（2000ms）即2秒。</li>
+<li>duration: 取整数值，滑动步长，数值越大滑动越快，反之则越慢。默认为40。</li>
+</ul>
       </section>
     </div>
     <footer>
