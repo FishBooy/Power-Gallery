@@ -47,15 +47,35 @@
 
       <section id="main_content">
         <h3>
-<a name="%E5%85%B3%E4%BA%8Egallery" class="anchor" href="#%E5%85%B3%E4%BA%8Egallery"><span class="octicon octicon-link"></span></a>关于Gallery:</h3>
+<a name="%E5%85%B3%E4%BA%8Egallery" class="anchor" href="#%E5%85%B3%E4%BA%8Egallery"><span class="octicon octicon-link"></span></a>关于gallery:</h3>
 
-<p>Gallery是一款基于jQuery的，用于图片浏览的焦点图组件。
-关于Gallery的编写----它的结构采用的是原型继承的结构（构造函数是Gallery,所有动态属性都在构造函数内由this来指定，所有公共方法及属性都集合在原型对象内）。它的功能执行遵循了普通插件的执行方式（参数配置-&gt;主要程序的运行-&gt;返回$对象）。</p>
+<p>gallery是一款基于jQuery的，用于图片浏览的焦点图组件，只包含一个css样式文件和一个js文件。
+关于gallery的编写----它的结构采用的是原型继承的结构（构造函数是Gallery,所有动态属性都在构造函数内由this来指定，所有公共方法及属性都集合在原型对象内）。它的功能执行遵循了普通插件的执行方式（参数配置-&gt;主要程序的运行-&gt;返回$对象）。</p>
 
-<h3>
+<hr><h3>
 <a name="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" class="anchor" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="octicon octicon-link"></span></a>如何使用？</h3>
 
-<p>Gallery的使用非常简单</p>
+<p>gallery的使用非常简单：
+(1)引用一个css文件和两个js文件到文档中：
+`
+</p>
+<p>
+<code>
+(2)写好html结构：
+</code></p>
+
+<div> //容器类名没有限制
+  <ul> //图片的列表个数没有限制
+    <li><a href=""><img src="img/slider01.jpg" alt=""></a></li>
+    <li><a href=""><img src="img/slider02.jpg" alt=""></a></li>
+    <li><a href=""><img src="img/slider03.jpg" alt=""></a></li>
+  </ul>
+<div></div> //标题下的阴影
+  <p></p> //包含所有标题，标题内容来源于上面img的alt属性
+  <ol></ol> //包含所有序号按钮
+</div>
+
+<p>`</p>
       </section>
 
       <footer>
