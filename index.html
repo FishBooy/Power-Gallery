@@ -36,12 +36,14 @@
 <hr><h2>
 <a name="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" class="anchor" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="octicon octicon-link"></span></a>如何使用？</h2>
 
-<p>gallery的使用非常简单:<br><strong>(1)引用一个css文件和两个js文件到文档中</strong></p>
+<p>gallery的使用非常简单，首先下载并解压，然后:     </p>
+
+<p><strong>(1)引用源文件（一个css文件和一个个js文件）到文档中，当然还要保证jQuery也引进来（而且要在gallery的js文件之前）：</strong></p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/tinyStyles.css"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/tinyStyles.css"</span><span class="nt">/&gt;</span><span class="c">&lt;!--此为要引用的样式文件--&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"js/gallery-2.0.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"js/gallery-2.0.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span><span class="c">&lt;!--此处为要引用的js文件--&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 </pre></div>
 
@@ -64,18 +66,18 @@
 <p>组件的初始化有两种方式:<br>
 第一种：在head标签内初始化，但是一定要保证初始化代码在第一步中引用的两个js个文件之后，初始化代码如下：</p>
 
-<div class="highlight highlight-javascript"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript"</span><span class="o">&gt;</span>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
   <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span><span class="c1">//此处类名对应上一步中html中的类名</span>
   <span class="p">});</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
 <p>第二种：在body标签结束之前，初始化代码如下：</p>
 
-<div class="highlight highlight-javascript"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript"</span><span class="o">&gt;</span>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span><span class="c1">//此处类名对应上一步中html中的类名</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
 <p>至此，一个焦点图小组件应该可以正常显示在你的页面中了。它包含了标题，方向按钮，水平滚动的动画效果等等，但是如果你想延迟滑动的等待时间，或者想在序号按钮中显示出数字等等，那么你可以参考本文下面的部分：配置参数。    </p>
