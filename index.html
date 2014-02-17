@@ -38,7 +38,7 @@
 
 <p>gallery的使用非常简单，首先下载并解压，然后:     </p>
 
-<p><strong>(1)引用源文件（一个css文件和一个个js文件）到文档中，当然还要保证jQuery也引进来（而且要在gallery的js文件之前）：</strong></p>
+<p><strong>(1)引用源文件(一个css文件和一个js文件)到文档中，当然还要保证jQuery也引进来(而且要在gallery的js文件之前)：</strong></p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;head&gt;</span>
 <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/tinyStyles.css"</span><span class="nt">/&gt;</span><span class="c">&lt;!--此为要引用的样式文件--&gt;</span>
@@ -89,7 +89,9 @@
 <li>shaHeight: 取整数值，表示标题阴影背景的高度，默认高度为36即36px。</li>
 <li>hasArrow: 取布尔值，true代表有方向按钮，false代表没有。</li>
 <li>pause: 取整数值，滑动之前的等待时间。默认为2000（2000ms）即2秒。</li>
-<li>duration: 取整数值，滑动步长，数值越大滑动越快，反之则越慢。默认为50。<br>
+<li>duration: 取整数值，滑动步长，数值越大滑动越快，反之则越慢。默认为50。</li>
+<li>onStart: 每次滑动前需要执行的函数。默认<code>function(){}</code>。</li>
+<li>onStart: 每次滑动结束后的回调函数。默认<code>function(){}</code>。<br>
 </li>
 </ul><p><strong>配置示例（一个没有方向按钮且等待时间为5秒的gallery）:</strong></p>
 
