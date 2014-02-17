@@ -1,51 +1,36 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jquery-Gallery : 基于jquery的焦点图组件" />
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Jquery-Gallery by FishBooy</title>
+    <title>Jquery-Gallery</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/FishBooy/Gallery">View on GitHub</a>
-    <div class="shell">
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Jquery-Gallery</h1>
-            <h2>基于jquery的焦点图组件</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/FishBooy/Gallery">View on GitHub</a>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/FishBooy/Gallery/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/FishBooy/Gallery/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+          <h1 id="project_title">Jquery-Gallery</h1>
+          <h2 id="project_tagline">基于jquery的焦点图组件</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/FishBooy/Gallery/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/FishBooy/Gallery/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>
 <a name="%E5%85%B3%E4%BA%8Egallery" class="anchor" href="#%E5%85%B3%E4%BA%8Egallery"><span class="octicon octicon-link"></span></a>关于gallery:</h3>
 
@@ -56,42 +41,49 @@
 <a name="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" class="anchor" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="octicon octicon-link"></span></a>如何使用？</h3>
 
 <p>gallery的使用非常简单：
-(1)引用一个css文件和两个js文件到文档中：
-`
-</p>
-<p>
-<code>
-(2)写好html结构：
-</code></p>
+(1)引用一个css文件和两个js文件到文档中：</p>
 
-<div> //容器类名没有限制
-  <ul> //图片的列表个数没有限制
-    <li><a href=""><img src="img/slider01.jpg" alt=""></a></li>
-    <li><a href=""><img src="img/slider02.jpg" alt=""></a></li>
-    <li><a href=""><img src="img/slider03.jpg" alt=""></a></li>
-  </ul>
-<div></div> //标题下的阴影
-  <p></p> //包含所有标题，标题内容来源于上面img的alt属性
-  <ol></ol> //包含所有序号按钮
-</div>
+<pre><code>&lt;head&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/tinyStyles.css"/&gt;
+&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/gallery-2.0.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
 
-<p>`</p>
+<p>(2)写好html结构：</p>
+
+<pre><code>&lt;div class="container"&gt; //容器类名没有限制
+  &lt;ul&gt; //图片的列表个数没有限制
+    &lt;li&gt;&lt;a href=""&gt;&lt;img src="img/slider01.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;&lt;img src="img/slider02.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;&lt;img src="img/slider03.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div&gt;&lt;/div&gt; //标题下的阴影
+  &lt;p&gt;&lt;/p&gt; //包含所有标题，标题内容来源于上面img的alt属性
+  &lt;ol&gt;&lt;/ol&gt; //包含所有序号按钮
+&lt;/div&gt;
+</code></pre>
+
+<p>（3）配置组件并初始化：
+组件的初始化有两种方式&gt; 
+第一种：在head标签内初始化，但是一定要保证初始化代码在第一步中引用的两个js个文件之后，初始化代码如下：</p>
+
+<pre><code>$(function(){
+  $('.container').gallery();//此处类名对应上一步中html中的类名
+});
+</code></pre>
       </section>
+    </div>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/FishBooy">FishBooy</a> can be found on <a href="https://github.com/FishBooy/Gallery">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jquery-Gallery maintained by <a href="https://github.com/FishBooy">FishBooy</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
-
     </div>
 
     
+
   </body>
 </html>
