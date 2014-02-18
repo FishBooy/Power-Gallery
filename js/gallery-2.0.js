@@ -1,7 +1,15 @@
-/*==================gallery-2.0 面向对象式构造插件===================*/ ;
-(function($) {
+/************
+* name: gallery
+* version: 2.0
+* date:
+* author: kevin
+* github: https://github.com/FishBooy
+* email: qwk.love@gmail.com
+*
+**************/
+;(function($) {
 
-	/*=============构造器============*/
+	/*====构造器====*/
 	var Gallery = function(opts, gallery) {
 		this.opts = $.extend({}, this.defaultOpts, opts ? opts : {});
 		this.gallery = gallery.addClass('Gallery');
@@ -10,14 +18,7 @@
 		this.eventsBind();
 	}
 
-	/*=============对象属性以及方法============*/
-	/*setTimeout(func,time)中,func中的this指向问题如下:
-	 **无论func是变量赋值还是对象属性,this都是指向全局window对象！--
-	 **具体参见：https://developer.mozilla.org/zh-CN/docs/DOM/window.setTimeout
-	 **
-	 **针对该this问题,现用'匿名函数自行执行返回'进行修正如slideRun和setBeforeSlide中:
-	 **setTimeout((function(){return function(){self.slideRun()}})(),time)
-	 */
+	/*====对象属性以及方法====*/
 	//滑动算法
 	Gallery.prototype.Tween = {
 		Quart: {
@@ -48,9 +49,13 @@
 
 	//默认参数
 	Gallery.prototype.defaultOpts = {
+		width:0,
+		height:0,
 		animation: 'slide',
 		shaHeight: 36,
 		hasArrow: true,
+		btnShape: '',
+		btnTxt: false,
 		duration: 40,
 		pause: 2000,
 		interval: 10,
@@ -72,11 +77,12 @@
 		var bHtml = '',
 			tHtml = '';
 
-		this.width = this.gallery.width();
-		this.height = this.gallery.height();
+		this.width = (this.opts.width)? this.opts.width:this.gallery.width();
 		this.mounts = $('img', this.gallery).length;
-
+		this.gallery.css('width',this.width);
 		this.imgsContainer = $('ul', this.gallery).addClass('imgs-container').css('width', this.mounts * this.width);
+		this.height = (this.opts.height)? this.opts.height:this.gallery.height();		
+		
 		this.images = $('img', this.gallery).css({
 			width: this.width,
 			height: this.height
@@ -90,9 +96,9 @@
 			bHtml += '<li><a href="">' + i + '</a></li>';
 			tHtml += '<a href="">' + this.images.eq(i - 1).attr('alt') + '</a>';
 		};
-		this.buttons = $('ol', this.gallery).addClass('buttons').append(bHtml);
+		this.buttons = $('ol', this.gallery).addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).append(bHtml);
 		this.titles = $('p', this.gallery).addClass('titles').append(tHtml);
-		this.arrows = $('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>').appendTo(this.gallery);
+		this.arrows = (this.opts.hasArrow)?($('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>').appendTo(this.gallery)):null;
 
 		this.target = null;
 		this.begin = this.getCss(this.imgsContainer, 'marginLeft');

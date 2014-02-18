@@ -12,15 +12,12 @@ img{ border: none;}
 a{
 	text-decoration: none;
 }
-.container{
-	width: 360px;
-	height: 200px;
-}
 /*===========tinySlide===========*/
 
 .Gallery{
 	overflow: hidden;
 	position: relative;
+	zoom: 1;
 }
 .Gallery li{
 	float: left;
@@ -57,25 +54,25 @@ a{
 .Gallery .buttons
 {
 	position: absolute;
-	bottom: 10px;
-	right: 10px;
+	bottom: 12px;
+	right: 8px;
 	zoom: 1;
 }
 .Gallery .buttons a
 {
 	display: block;
-	width: 14px;
-	height: 14px;
-	margin-right: 2px;
-	background-color: #fafafa;
+	width: 10px;
+	height: 10px;
+	margin-right: 5px;
 	font-family: "微软雅黑",宋体, sans-serif;
 	font-size: 14px;
 	line-height: 14px;
 	/*font-weight: bold;*/
 	color: #916330;
 	text-indent:-10em;
+	text-align: center;
 	overflow:hidden;
-	background:#e2e2e2;
+	background:#fafafa;
 
 }
 .Gallery .buttons a{
@@ -91,7 +88,37 @@ a{
 	box-shadow:1px 1px 1px #974b00 inset;
 	background:#ff9626;
 }
-.prev-btn,.next-btn{
+
+.Gallery .square a{
+	border-radius: 0px;
+	font-size: 12px;
+}
+.Gallery .hasTxt
+{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	zoom: 1;
+}
+.Gallery .hasTxt a{
+	text-indent: 0;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	color: #888;
+	box-shadow:none;
+	background: #fff;
+	-moz-box-shadow:0px 1px 2px #333;
+	-webkit-box-shadow:0px 1px 2px #333;
+	box-shadow:0px 1px 2px #333;
+}
+.Gallery .hasTxt a.on{
+	box-shadow: none;
+	color: #fff;
+}
+
+.Gallery .prev-btn,
+.Gallery .next-btn{
 	color: #fff;
 	font-size: 30px;
 	text-align: center;
@@ -107,16 +134,17 @@ a{
 	z-index: 999;
 	display: none;
 }
-a.prev-btn:hover,a.next-btn:hover{
+.Gallery a.prev-btn:hover,
+.Gallery a.next-btn:hover{
 	opacity: 0.9;
 	filter:alpha(opacity=80);
 	background: #ff9626;
 }
-.prev-btn{
+.Gallery .prev-btn{
 	left: 0;
 	top: 38%;
 }
-.next-btn{
+.Gallery .next-btn{
 	right: 0;
 	top: 38%;
 }
@@ -127,6 +155,7 @@ a.prev-btn:hover,a.next-btn:hover{
 	padding: 10px;
 	border: #cfcfcf 1px solid;
 	width: 360px;
+	height: 200px;
 	background: #fff;
 	margin: 20px auto;
 }
