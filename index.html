@@ -62,32 +62,12 @@
 </pre></div>
 
 <p><strong>(3)配置组件并初始化：</strong><br>
-在初始化之前有一点需要注意，即gallery的宽度和高度，只有在宽和高确定的情况下才能保证组件正常运行。在这里提供了两种方式来指定宽高度：
-第一种（推荐）：在初始化的时候指定宽高</p>
-
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-    <span class="c1">//此处类名对应上一步中html中的类名</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">({</span>
-        <span class="nx">width</span><span class="o">:</span> <span class="mi">360</span><span class="p">,</span>
-        <span class="nx">height</span><span class="o">:</span> <span class="mi">200</span>
-    <span class="p">});</span>
-<span class="nt">&lt;/script&gt;</span>
-</pre></div>
-
-<p>第二种：给<code>.container</code>元素指定样式，可以在你的样式表中也可以在gallery的css文件中指定</p>
-
-<div class="highlight highlight-css"><pre><span class="nc">.container</span><span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">360px</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">200px</span><span class="p">;}</span>
-</pre></div>
-
-<p>组件的初始化有两种方式:<br>
+组件的初始化有两种方式:<br>
 第一种：在head标签内初始化，但是一定要保证初始化代码在第一步中引用的两个js个文件之后，初始化代码如下：</p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
     <span class="c1">//此处类名对应上一步中html中的类名</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">({</span>
-        <span class="nx">width</span><span class="o">:</span> <span class="mi">360</span><span class="p">,</span>
-        <span class="nx">height</span><span class="o">:</span> <span class="mi">200</span>
-    <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">());</span>
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
@@ -96,6 +76,20 @@
 <div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span><span class="c1">//此处类名对应上一步中html中的类名</span>
 <span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<p>最后，还有非常重要的一点，即：指定<code>.container</code>宽度和高度。宽高的指定也有两种方式：<br>
+第一种（推荐）：在你的css文件中或gallery源文件的<code>gallery.css</code>中指定：</p>
+
+<div class="highlight highlight-css"><pre><span class="nc">.container</span><span class="p">{</span><span class="k">width</span><span class="o">:</span><span class="m">360px</span><span class="p">;</span><span class="k">height</span><span class="o">:</span><span class="m">200px</span><span class="p">;}</span>
+</pre></div>
+
+<p>第二种：在初始化的时候指定，即在上面的两种初始化方式中，不管你选择哪种方式 都要小小修改一下，如下：</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">({</span>
+    <span class="nx">width</span><span class="o">:</span><span class="mi">360</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span><span class="mi">200</span>
+<span class="p">});</span>
 </pre></div>
 
 <p>至此，一个焦点图小组件应该可以正常显示在你的页面中了。它包含了标题，方向按钮，水平滚动的动画效果等等，但是如果你想延迟滑动的等待时间，或者想在序号按钮中显示出数字等等，那么你可以参考本文下面的部分：配置参数。    </p>
