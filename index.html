@@ -61,15 +61,33 @@
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 
-<p><strong>(3)配置组件并初始化：</strong>    </p>
+<p><strong>(3)配置组件并初始化：</strong><br>
+在初始化之前有一点需要注意，即gallery的宽度和高度，只有在宽和高确定的情况下才能保证组件正常运行。在这里提供了两种方式来指定宽高度：
+第一种（推荐）：在初始化的时候指定宽高</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="c1">//此处类名对应上一步中html中的类名</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">({</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">360</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="mi">200</span>
+    <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<p>第二种：给<code>.container</code>元素指定样式，可以在你的样式表中也可以在gallery的css文件中指定</p>
+
+<div class="highlight highlight-css"><pre><span class="nc">.container</span><span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">360px</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">200px</span><span class="p">;}</span>
+</pre></div>
 
 <p>组件的初始化有两种方式:<br>
 第一种：在head标签内初始化，但是一定要保证初始化代码在第一步中引用的两个js个文件之后，初始化代码如下：</p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span><span class="c1">//此处类名对应上一步中html中的类名</span>
-  <span class="p">});</span>
+    <span class="c1">//此处类名对应上一步中html中的类名</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">({</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">360</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="mi">200</span>
+    <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
@@ -86,9 +104,13 @@
 <a name="%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0" class="anchor" href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="octicon octicon-link"></span></a>配置参数</h2>
 
 <ul>
+<li>width: 取整数值，指定gallery的宽度。</li>
+<li>height: 取整数值，指定gallery的高度。</li>
 <li>shaHeight: 取整数值，表示标题阴影背景的高度，默认高度为36即36px。</li>
 <li>hasArrow: 取布尔值，true代表有方向按钮，false代表没有。默认为true。</li>
 <li>pause: 取整数值，滑动之前的等待时间。默认为2000（2000ms）即2秒。</li>
+<li>btnShape: 字符串，序号按钮的形状。默认为圆形，'square'代表方形。</li>
+<li>btnTxt: 布尔值，true代表按钮含有序号，false代表没有。默认为false。</li>
 <li>duration: 取整数值，滑动步长，数值越大滑动越慢，反之则越快。默认为50。</li>
 <li>onStart: 每次滑动前需要执行的函数。默认<code>function(){}</code>。</li>
 <li>onFinish: 每次滑动结束后的回调函数。默认<code>function(){}</code>。<br>
