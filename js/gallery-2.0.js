@@ -13,6 +13,7 @@
 	var Gallery = function(opts, gallery) {
 		this.opts = $.extend({}, this.defaultOpts, opts ? opts : {});
 		this.gallery = gallery.addClass('Gallery');
+		this.slideWrap = $('div',this.gallery).addClass('slide-wrap');
 
 		this.setData();
 		this.eventsBind();
@@ -75,35 +76,36 @@
 	Gallery.prototype.setData = function() {
 
 		var bHtml = '',
-			tHtml = '';
+			tHtml = '',
+			gallery=this.gallery;
 
-		this.width = (this.opts.width)? this.opts.width:this.gallery.width();
-		this.mounts = $('img', this.gallery).length;
-		this.gallery.css('width',this.width);
-		this.imgsContainer = $('ul', this.gallery).addClass('imgs-container').css('width', this.mounts * this.width);
-		this.height = (this.opts.height)? this.opts.height:this.gallery.height();		
+		this.width = (this.opts.width)? this.opts.width:gallery.width();
+		this.mounts = $('img', gallery).length;
+		gallery.css('width',this.width);
+		this.imgsContainer = $('ul', gallery).addClass('imgs-container').css('width', this.mounts * this.width);
+		this.height = (this.opts.height)? this.opts.height:gallery.height();		
 		
-		this.images = $('img', this.gallery).css({
+		this.images = $('img', gallery).css({
 			width: this.width,
 			height: this.height
 		});
-		this.shadow = $('div', this.gallery).addClass('shadow').css({
+		this.shadow = $('<div>').addClass('shadow').css({
 			width: this.width,
 			height: this.opts.shaHeight
-		});
+		}).appendTo(gallery);
 
 		for (var i = 1; i <= this.mounts; i++) {
 			bHtml += '<li><a href="">' + i + '</a></li>';
 			tHtml += '<a href="">' + this.images.eq(i - 1).attr('alt') + '</a>';
 		};
-		this.buttons = $('ol', this.gallery).addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).append(bHtml);
-		this.titles = $('p', this.gallery).addClass('titles').append(tHtml);
-		this.arrows = (this.opts.hasArrow)?($('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>').appendTo(this.gallery)):null;
+		this.buttons = $('<ol>').addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).html(bHtml).appendTo(gallery);
+		this.titles = $('<p>').addClass('titles').html(tHtml).appendTo(gallery);
+		this.arrows = (this.opts.hasArrow)?($('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>').appendTo(gallery)):null;
 
 		this.target = null;
-		this.begin = this.getCss(this.imgsContainer, 'marginLeft');
-		this.change = this.width * (-1);
-		this.cFixed = this.width * (-1);
+		this.begin = this.slideWrap.scrollLeft();
+		this.change = this.width;
+		this.cFixed = this.width;
 		this.timer = 0;
 		this.timeId = null;
 		this.auto = true;
@@ -151,6 +153,7 @@
 				.contents()
 				.not('ul,a.prev-btn,a.next-btn')
 				.not($('ul', self.container).contents())
+				.not('.slide-wrap')
 				.bind('mouseover', function(e) {
 					e.stopPropagation()
 					self.arrows.fadeOut(100)
@@ -164,7 +167,7 @@
 		if (e == undefined) {
 			clearTimeout(this.timeId);
 			var self = this;
-			this.begin = this.getCss(this.imgsContainer, 'marginLeft');
+			this.begin = this.slideWrap.scrollLeft();
 			this.change = (this.begin == (this.mounts - 1) * this.cFixed) ? -this.begin : this.cFixed;
 			this.alterClassName();
 			this.timeId = setTimeout(function() {self.slideRun()}, this.opts.pause)
@@ -172,7 +175,7 @@
 			e.preventDefault();
 			var self = e.data.self;
 			clearTimeout(self.timeId);
-			self.begin = self.getCss(self.imgsContainer, 'marginLeft');
+			self.begin = self.slideWrap.scrollLeft();
 
 			if (e.data.Event) {
 				var destination;
@@ -194,6 +197,8 @@
 						};
 						destination = inte * self.cFixed;
 						self.alterClassName(inte);
+					}else{
+						destination=self.begin;
 					}
 				} else {
 					if (self.begin != 0) {
@@ -236,7 +241,7 @@
 		var self = this;
 		if (this.timer <= this.opts.duration) {
 			var position = Math.round(this.Tween.Quart.easeOut(this.timer, this.begin, this.change, this.opts.duration))
-			this.imgsContainer.css('marginLeft', position + 'px');
+			this.slideWrap.scrollLeft(position);
 			this.timer++;
 			this.timeId = setTimeout(function() {self.slideRun()}, this.opts.interval)
 		} else {
