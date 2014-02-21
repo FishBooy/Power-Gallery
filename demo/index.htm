@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<head></head>
+<title>jQuery_gallery-demo</title>
+<link rel="stylesheet" type="text/css" href="css/gallery.css"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-gallery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.container').gallery({
+			width:720,
+			height:360
+		});
+	})		
+</script>
+
+<body>
+
+	<div class="Demo">
+		<!--HTML FOR 'jQuery-gallery' START-->
+		<div class="container">
+			<div>
+				<ul>
+					<li><a href=""><img src="img/slider01.jpg" alt="粉红" /></a></li>
+					<li><a href=""><img src="img/slider02.jpg" alt="照片" /></a></li>
+					<li><a href=""><img src="img/slider03.jpg" alt="风车" /></a></li>
+					<li><a href=""><img src="img/slider04.jpg" alt="麦田" /></a></li>
+					<li><a href=""><img src="img/slider05.jpg" alt="黄昏" /></a></li>
+					<li><a href=""><img src="img/slider06.jpg" alt="河流" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--HTML FOR 'jQuery-gallery' END-->
+	</div>
+
+</body>
+</html>
