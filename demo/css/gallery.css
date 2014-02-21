@@ -5,7 +5,7 @@ body,div,p,ul,ol,h2,a,span,img{
 	padding: 0;
 }
 body{
-	background: #f9f9f9;
+	background: #f5f5f5;
 }
 li{ list-style: none;}
 img{ border: none;}
@@ -53,15 +53,13 @@ a{
 .Gallery .titles a.curInfo{ 
 	display: inline;
 }
-.Gallery .buttons
-{
+.Gallery .buttons{
 	position: absolute;
 	bottom: 14px;
 	right: 8px;
 	zoom: 1;
 }
-.Gallery .buttons a
-{
+.Gallery .buttons a{
 	display: block;
 	width: 10px;
 	height: 10px;
@@ -95,8 +93,7 @@ a{
 	border-radius: 0px;
 	font-size: 12px;
 }
-.Gallery .hasTxt
-{
+.Gallery .hasTxt{
 	position: absolute;
 	bottom: 12px;
 	right: 10px;
@@ -126,7 +123,6 @@ a{
 	text-align: center;
 	font-weight: bold;
 	font-family: 宋体, sans-serif;
-	display: block;
 	width: 36px;
 	height: 34px;
 	background: #000;
@@ -150,6 +146,38 @@ a{
 	right: 0;
 	top: 38%;
 }
+.Gallery .arrows-out{
+	position: absolute;
+	top: -34px;
+	right: 0px;
+	height: 22px;
+	line-height: 22px;
+}
+.Gallery .arrows-out a{
+	border-radius: 5px;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 18px;
+	display: block;
+	position: relative;
+	left: 0;
+	top: 0;
+	float: left;
+}
+.Gallery .arrows-out span{
+	display: block;
+	width: 20px;
+	height:22px;
+	font-family: '微软雅黑';
+	color: #888;
+	float: left;
+}
+.Gallery .arrows-out span.curNum{
+	width: 14px;
+	color: #555;
+	text-align: right;
+}
 /*styles for demo
 *使用插件时,demo的html标签和样式都可以为去掉
 */
@@ -163,16 +191,16 @@ a{
 }
 
 .Demo02{
-	padding: 0px 8px 10px 8px;
+	padding: 0px 8px 8px 8px;
 	border: #cfcfcf 1px solid;
-	width: 360px;
+	width: 300px;
 	background: #fff;
 	margin: 20px auto;
 	box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
 }
 .Demo02 h2{
-	height: 38px;
-	line-height: 38px;
+	height: 42px;
+	line-height: 42px;
 	font-size: 18px;
 	font-family: '微软雅黑';
 	font-weight: normal;

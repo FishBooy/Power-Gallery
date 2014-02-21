@@ -101,12 +101,16 @@
 			bHtml += '<li><a href="">' + i + '</a></li>';
 			tHtml += '<a href="">' + this.images.eq(i - 1).attr('alt') + '</a>';
 		};
-		this.buttons = (this.opts.hasArrow)? $('<ol>').addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).html(bHtml).appendTo(gallery):null;
+		this.buttons = (this.opts.hasBtn)? $('<ol>').addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).html(bHtml).appendTo(gallery):null;
 		this.titles = $('<p>').addClass('titles').html(tHtml).appendTo(gallery);
-		this.arrows = (this.opts.hasArrow)?($('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>').appendTo(gallery)):null;
+		
 		if(this.opts.hasArrow){
+			var preHtml ='<a href="" class="prev-btn"><</a>',
+				nextHtml = '<a href="" class="next-btn">></a>';
 			if(this.opts.arrType==='outside'){
-
+				this.arrows = $('<div>').addClass('arrows-out').html(preHtml+'<span class="curNum"></span><span>/'+this.mounts+'</span>'+nextHtml).appendTo(gallery);
+			}else{
+				this.arrows = (this.opts.hasArrow)?($(preHtml+nextHtml).appendTo(gallery)):null;
 			}
 		}else{
 			this.arrows = null;
@@ -128,6 +132,7 @@
 
 		self.buttons && $('a', self.buttons).eq(0).addClass('on');
 		$('a', self.titles).eq(0).addClass('curInfo');
+		self.arrows && (self.opts.arrType==='outside') && (self.arrows.find('.curNum').text(1));
 
 		self.buttons && $.each($('a', self.buttons), function(k, v) {
 			$(v).bind('mouseover', {
@@ -151,7 +156,7 @@
 				Event: 'prev',
 				self: self
 			}, this.setBeforeSlide);
-			self.gallery
+			(self.opts.arrType==='outside') || self.gallery
 				.bind({
 					mouseover: function(e) {
 						self.arrows.fadeIn(300)
@@ -234,17 +239,20 @@
 
 	//开始滑动之前按钮和标题的更换 
 	Gallery.prototype.alterClassName = function(index) {
-		var b=this.buttons;
+		var b=this.buttons,
+			arrNum= (this.arrows && (this.opts.arrType==='outside'))? this.arrows.find('.curNum'):null;
 		b && this.buttons.find('a.on').removeClass('on');
 		this.titles.find('.curInfo').removeClass('curInfo');
 		if (typeof index == 'number') {
 			b && $('a', this.buttons).eq(index).addClass('on')
 			$('a', this.titles).eq(index).addClass('curInfo');
+			arrNum && arrNum.text(index+1);
 		} else {
 			var next = parseInt(this.begin / this.cFixed);
 			b && $('a', this.buttons).eq(next).addClass('on')
 			$('a', this.titles).eq(next).addClass('curInfo');
-		}
+			arrNum && arrNum.text(next+1);
+		};
 	};
 
 	//滑动主体
