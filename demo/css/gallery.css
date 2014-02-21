@@ -29,8 +29,8 @@ a{
 	overflow: hidden;
 	zoom: 1;
 }
-.Gallery .shadow
-{
+.Gallery .shadow{
+	width: 100%;
 	position: absolute;
 	bottom: 0;
 	background: #000;
