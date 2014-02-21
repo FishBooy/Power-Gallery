@@ -55,6 +55,8 @@
 		animation: 'slide',
 		shaHeight: 42,
 		hasArrow: true,
+		arrType: 'inside',
+		hasBtn: true,
 		btnShape: '',
 		btnTxt: false,
 		duration: 40,
@@ -99,9 +101,16 @@
 			bHtml += '<li><a href="">' + i + '</a></li>';
 			tHtml += '<a href="">' + this.images.eq(i - 1).attr('alt') + '</a>';
 		};
-		this.buttons = $('<ol>').addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).html(bHtml).appendTo(gallery);
+		this.buttons = (this.opts.hasArrow)? $('<ol>').addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).html(bHtml).appendTo(gallery):null;
 		this.titles = $('<p>').addClass('titles').html(tHtml).appendTo(gallery);
 		this.arrows = (this.opts.hasArrow)?($('<a href="" class="prev-btn"><</a><a href="" class="next-btn">></a>').appendTo(gallery)):null;
+		if(this.opts.hasArrow){
+			if(this.opts.arrType==='outside'){
+
+			}
+		}else{
+			this.arrows = null;
+		}
 
 		this.target = null;
 		this.begin = this.slideWrap.scrollLeft();
@@ -117,10 +126,10 @@
 
 		var self = this;
 
-		$('a', self.buttons).eq(0).addClass('on');
+		self.buttons && $('a', self.buttons).eq(0).addClass('on');
 		$('a', self.titles).eq(0).addClass('curInfo');
 
-		$.each($('a', self.buttons), function(k, v) {
+		self.buttons && $.each($('a', self.buttons), function(k, v) {
 			$(v).bind('mouseover', {
 				index: k,
 				self: self
@@ -225,14 +234,15 @@
 
 	//开始滑动之前按钮和标题的更换 
 	Gallery.prototype.alterClassName = function(index) {
-		this.buttons.find('a.on').removeClass('on');
+		var b=this.buttons;
+		b && this.buttons.find('a.on').removeClass('on');
 		this.titles.find('.curInfo').removeClass('curInfo');
 		if (typeof index == 'number') {
-			$('a', this.buttons).eq(index).addClass('on')
+			b && $('a', this.buttons).eq(index).addClass('on')
 			$('a', this.titles).eq(index).addClass('curInfo');
 		} else {
 			var next = parseInt(this.begin / this.cFixed);
-			$('a', this.buttons).eq(next).addClass('on')
+			b && $('a', this.buttons).eq(next).addClass('on')
 			$('a', this.titles).eq(next).addClass('curInfo');
 		}
 	};

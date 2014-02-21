@@ -153,12 +153,28 @@ a{
 /*styles for demo
 *使用插件时,demo的html标签和样式都可以为去掉
 */
-.Demo{
+.Demo01{
 	padding: 8px;
 	border: #cfcfcf 1px solid;
 	width: 720px;
-	height: 360px;
 	background: #fff;
 	margin: 20px auto;
 	box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+.Demo02{
+	padding: 0px 8px 10px 8px;
+	border: #cfcfcf 1px solid;
+	width: 360px;
+	background: #fff;
+	margin: 20px auto;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+.Demo02 h2{
+	height: 38px;
+	line-height: 38px;
+	font-size: 18px;
+	font-family: '微软雅黑';
+	font-weight: normal;
+	color: #333;
 }
