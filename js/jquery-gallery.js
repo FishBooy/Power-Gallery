@@ -1,7 +1,7 @@
 /************
-* name: gallery
+* name: jquery-gallery
 * version: 2.0
-* date:
+* date: 2014-02-24
 * author: kevin
 * github: https://github.com/FishBooy
 * email: qwk.love@gmail.com
@@ -9,7 +9,7 @@
 **************/
 ;(function($) {
 
-	/*====构造器====*/
+	/*====构造函数====*/
 	var Gallery = function(opts, gallery) {
 		this.opts = $.extend({}, this.defaultOpts, opts ? opts : {});
 		this.gallery = gallery.addClass('Gallery');
@@ -73,37 +73,28 @@
 		onFinish: function() {}
 	};
 
-	//样式取数字值
-	Gallery.prototype.getCss = function(Jobj, key) {
-		if (typeof key == 'string') {
-			var cssData = parseInt(Jobj.css(key))
-			return (typeof cssData == 'number') ? cssData : false;
-		}
-	};
-
 	//完善当前dom并将各主要元素的jquery对象与对象属性相对应
 	Gallery.prototype.setData = function() {
 
 		var bHtml = '',
 			tHtml = '',
-			gallery=this.gallery;
+			btnStr = '',
+			btnsWidth,
+			gallery=this.gallery,
+			img=$('img', gallery);
 
+		this.mounts = img.length;
 		this.width = (this.opts.width)? this.opts.width:gallery.width();
-		this.mounts = $('img', gallery).length;
 		gallery.css('width',this.width);
 		this.imgsContainer = $('ul', gallery).addClass('imgs-container').css('width', this.mounts * this.width);
 		this.height = (this.opts.height)? this.opts.height:gallery.height();		
 		
-		this.images = $('img', gallery).css({
+		this.images = img.css({
 			width: this.width,
 			height: this.height
 		});
-		this.shadow = $('<div>').addClass('shadow').css({
-			height: this.opts.shaHeight
-		}).appendTo(gallery);
+		this.shadow = $('<div>').addClass('shadow').css('height',this.opts.shaHeight).appendTo(gallery);
 
-		var btnStr = '',
-			btnsWidth;
 		for (var i = 1; i <= this.mounts; i++) {
 			btnStr = (this.opts.btnType=='img')? '<img src="'+this.images.eq(i-1).attr('src')+'"/>':i;
 			bHtml += '<li><a href="">' + btnStr + '</a></li>';
@@ -151,13 +142,14 @@
 	//事件绑定
 	Gallery.prototype.eventsBind = function() {
 
-		var self = this;
+		var self = this,
+			btns = self.buttons;
 
-		self.buttons && $('a', self.buttons).eq(0).addClass('on');
-		$('a', self.titles).eq(0).addClass('curInfo');
+		btns && $('a', btns).eq(0).addClass('on');
+		self.titles && $('a', self.titles).eq(0).addClass('curInfo');
 		self.arrows && (self.opts.arrType==='outside') && (self.arrows.find('.curNum').text(1));
 
-		self.buttons && $.each($('a', self.buttons), function(k, v) {
+		btns && $.each($('a', btns), function(k, v) {
 			$(v).bind('mouseover', {
 				index: k,
 				self: self
@@ -205,10 +197,10 @@
 		if (e == undefined) {
 			clearTimeout(this.timeId);
 			var self = this;
-			this.begin = this.slideWrap.scrollLeft();
-			this.change = (this.begin == (this.mounts - 1) * this.cFixed) ? -this.begin : this.cFixed;
-			this.alterClassName();
-			this.timeId = setTimeout(function() {self.slideRun()}, this.opts.pause)
+			self.begin = self.slideWrap.scrollLeft();
+			self.change = (self.begin == (self.mounts - 1) * self.cFixed) ? -self.begin : self.cFixed;
+			self.alterClassName();
+			self.timeId = setTimeout(function() {self.slideRun()}, self.opts.pause)
 		} else {
 			e.preventDefault();
 			var self = e.data.self;
