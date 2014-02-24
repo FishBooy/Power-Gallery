@@ -63,7 +63,7 @@
 <div class="highlight highlight-javascript"><pre><span class="c1">//可以在head标签内初始化：</span>
     <span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">());</span>
 
-<span class="c1">//也可以在body标签结束之前，初始化代码如下：</span>
+<span class="c1">//也可以在body标签结束之前初始化：</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span>
 </pre></div>
 
@@ -89,18 +89,38 @@
 <a name="%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0" class="anchor" href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="octicon octicon-link"></span></a>配置参数</h2>
 
 <ul>
-<li>width: <em>int</em>，指定gallery的宽度。</li>
-<li>height: <em>int</em>，指定gallery的高度。</li>
-<li>shaHeight: <em>int</em>，表示标题阴影背景的高度，默认高度为36即36px。</li>
-<li>hasArrow: <em>boolean</em>，true代表有方向按钮，false代表没有。默认为true。</li>
-<li>arrType: <em>string</em>，方向按钮的样式类型，分内（'inside'）、外('outside')两种样式，默认为内部样式。</li>
-<li>hasBtn: <em>boolean</em>，是否显示按钮。true-有，false-没有。</li>
-<li>btnShape: <em>string</em>，序号按钮的形状。默认为圆形('circle')，'square'代表方形。</li>
-<li>btnTxt: <em>boolean</em>，true代表按钮含有序号，false代表没有。默认为false。</li>
-<li>duration: <em>int</em>，滑动步长，数值越大滑动越慢，反之则越快。默认为50。</li>
-<li>pause: <em>int</em>，滑动之前的等待时间。默认为2000（2000ms）即2秒。</li>
-<li>onStart: <em>func</em>，每次滑动前需要执行的函数。默认<code>function(){}</code>。</li>
-<li>onFinish: <em>func</em>，每次滑动结束后的回调函数。默认<code>function(){}</code>。<br>
+<li>
+<strong>width</strong>: <em>int</em>，指定gallery的宽度。</li>
+<li>
+<strong>height</strong>: <em>int</em>，指定gallery的高度。</li>
+<li>
+<strong>hasTitle</strong>: <em>boolean</em>，是否显示标题，true-显示，false-不显示。</li>
+<li>
+<strong>shaHeight</strong>: <em>int</em>，表示标题阴影背景的高度，默认高度为36即36px。</li>
+<li>
+<strong>hasArrow</strong>: <em>boolean</em>，true代表有方向按钮，false代表没有。默认为true。</li>
+<li>
+<strong>arrType</strong>: <em>string</em>，方向按钮的样式类型，分内（'inside'）、外('outside')两种样式，默认为内部样式。</li>
+<li>
+<strong>arrAni</strong>: <em>boolean</em>，方向按钮是否包含淡入淡出的动画。false-没有，true-有。</li>
+<li>
+<strong>hasBtn</strong>: <em>boolean</em>，是否显示按钮。true-有，false-没有。</li>
+<li>
+<strong>btnType</strong>：<em>string</em>，底部按钮的类型，默认为形状按钮（'btn'）,另外一种则是缩略图类型（'img'）。</li>
+<li>
+<strong>btnShape</strong>: <em>string</em>，序号按钮的形状。默认为圆形('circle')，'square'代表方形。</li>
+<li>
+<strong>btnTxt</strong>: <em>boolean</em>，true代表按钮含有序号，false代表没有。默认为false。</li>
+<li>
+<strong>duration</strong>: <em>int</em>，滑动步长，数值越大滑动越慢，反之则越快。默认为50。</li>
+<li>
+<strong>auto</strong>: <em>boolean</em>，gallery是否在初始化后自动滑动。</li>
+<li>
+<strong>pause</strong>: <em>int</em>，滑动之前的等待时间。默认为2000（2000ms）即2秒。</li>
+<li>
+<strong>onStart</strong>: <em>func</em>，每次滑动前需要执行的函数。默认<code>function(){}</code>。</li>
+<li>
+<strong>onFinish</strong>: <em>func</em>，每次滑动结束后的回调函数。默认<code>function(){}</code>。<br>
 </li>
 </ul><p><strong>配置示例（一个没有方向按钮且等待时间为5秒的gallery）:</strong></p>
 
@@ -110,7 +130,7 @@
 <span class="p">})</span>
 </pre></div>
 
-<p><a href="demo/">DEMO</a></p>
+<p><a href="demo/">==点此查看==DEMO</a></p>
       </section>
     </div>
     <footer>
