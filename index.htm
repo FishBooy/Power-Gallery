@@ -3,36 +3,124 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <head></head>
 <title>jQuery_gallery-demo</title>
-<link rel="stylesheet" type="text/css" href="css/gallery.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery-gallery.css"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/gallery-2.0.js"></script>
+<script type="text/javascript" src="js/jquery-gallery.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('.container').gallery({
+
+		$('.g-demo01').gallery({
 			width:720,
 			height:360
+		});
+
+		$('.g-demo02').gallery({
+			width:340,
+			height:170,
+			arrType: 'outside',
+			hasBtn: false,
+			pause: 5000,
+			duration: 20
+		});
+
+		$('.g-demo03').gallery({
+			width:340,
+			height:170,
+			arrAni:false,
+			btnShape: 'square',
+			btnTxt: true,
+			pause: 1000
+		});
+
+		$('.g-demo04').gallery({
+			width:720,
+			height:360,
+			hasTitle: false,
+			shaHeight: 75,
+			arrAni:false,
+			btnType:'img',
+			btnTxt: false
 		});
 	})		
 </script>
 
 <body>
 
-	<div class="Demo">
+<div class="wrapper">
+
+	<h1>GALLERY DEMO</h1>
+
+	<div class="Demo01">
 		<!--HTML FOR 'jQuery-gallery' START-->
-		<div class="container">
+		<div class="g-demo01">
 			<div>
 				<ul>
-					<li><a href=""><img src="img/slider06.jpg" alt="粉红" /></a></li>
-					<li><a href=""><img src="img/slider04.jpg" alt="照片" /></a></li>
-					<li><a href=""><img src="img/slider01.jpg" alt="风车" /></a></li>
-					<li><a href=""><img src="img/slider02.jpg" alt="麦田" /></a></li>
-					<li><a href=""><img src="img/slider03.jpg" alt="黄昏" /></a></li>
-					<li><a href=""><img src="img/slider05.jpg" alt="河流" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390701069444.jpg" alt="巴黎铁塔" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/960x600/1390701084229.jpg" alt="唯美景色" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390292317148.jpg" alt="广阔草原" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/138906094324.jpg" alt="傍晚的花丛" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1392342759212.jpg" alt="浪漫情人节" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1389664691376.jpg" alt="银色铁塔手链" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--HTML FOR 'jQuery-gallery' END-->
+	</div> 
+
+	<div class="Demo02">
+		<h2>此处是标题</h2>
+		<!--HTML FOR 'jQuery-gallery' START-->
+		<div class="g-demo02">
+			<div>
+				<ul>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390701069444.jpg" alt="巴黎铁塔" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/960x600/1390701084229.jpg" alt="超萌阿狸" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390292317148.jpg" alt="广阔草原" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/138906094324.jpg" alt="傍晚的花丛" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1392342759212.jpg" alt="浪漫情人节" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1389664691376.jpg" alt="银色铁塔手链" /></a></li>
 				</ul>
 			</div>
 		</div>
 		<!--HTML FOR 'jQuery-gallery' END-->
 	</div>
+
+	<div class="Demo03">
+		<!--HTML FOR 'jQuery-gallery' START-->
+		<div class="g-demo03">
+			<div>
+				<ul>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390701069444.jpg" alt="巴黎铁塔" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/960x600/1390701084229.jpg" alt="唯美景色" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390292317148.jpg" alt="广阔草原" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/138906094324.jpg" alt="傍晚的花丛" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1392342759212.jpg" alt="浪漫情人节" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1389664691376.jpg" alt="银色铁塔手链" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--HTML FOR 'jQuery-gallery' END-->
+	</div>	
+
+	<div class="Demo04">
+		<!--HTML FOR 'jQuery-gallery' START-->
+		<div class="g-demo04">
+			<div>
+				<ul>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390701069444.jpg" alt="巴黎铁塔" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/960x600/1390701084229.jpg" alt="唯美景色" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1390292317148.jpg" alt="广阔草原" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/138906094324.jpg" alt="傍晚的花丛" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1392342759212.jpg" alt="浪漫情人节" /></a></li>
+					<li><a href=""><img src="http://b.zol-img.com.cn/desk/bizhi/image/4/720x360/1389664691376.jpg" alt="银色铁塔手链" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--HTML FOR 'jQuery-gallery' END-->
+	</div> 
+</div>
+
+
 
 </body>
 </html>
