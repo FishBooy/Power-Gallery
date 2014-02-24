@@ -91,7 +91,6 @@
 		this.width = (this.opts.width)? this.opts.width:gallery.width();
 		this.mounts = $('img', gallery).length;
 		gallery.css('width',this.width);
-		this.slideWrap.css('width',this.width);
 		this.imgsContainer = $('ul', gallery).addClass('imgs-container').css('width', this.mounts * this.width);
 		this.height = (this.opts.height)? this.opts.height:gallery.height();		
 		
@@ -100,7 +99,6 @@
 			height: this.height
 		});
 		this.shadow = $('<div>').addClass('shadow').css({
-			width: this.width,
 			height: this.opts.shaHeight
 		}).appendTo(gallery);
 

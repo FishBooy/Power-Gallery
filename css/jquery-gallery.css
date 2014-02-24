@@ -19,6 +19,7 @@ a{
 	zoom: 1;
 }
 .Gallery .slide-wrap{
+	width: 100%;
 	overflow: hidden;
 }
 .Gallery li{
