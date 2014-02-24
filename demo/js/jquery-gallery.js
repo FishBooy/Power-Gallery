@@ -54,13 +54,20 @@
 		height:0,
 		animation: 'slide',
 		shaHeight: 42,
+		hasTitle: true,
 		hasArrow: true,
 		arrType: 'inside',
+		arrAni: true,
 		hasBtn: true,
+		btnType: 'btn',
+		btnBorder: 8,
 		btnShape: '',
+		btnsMar: 40,
+		btnMar: 5,
 		btnTxt: false,
+		auto: true,
 		duration: 40,
-		pause: 2000,
+		pause: 3000,
 		interval: 10,
 		onStart: function() {},
 		onFinish: function() {}
@@ -97,16 +104,34 @@
 			height: this.opts.shaHeight
 		}).appendTo(gallery);
 
+		var btnStr = '',
+			btnsWidth;
 		for (var i = 1; i <= this.mounts; i++) {
-			bHtml += '<li><a href="">' + i + '</a></li>';
+			btnStr = (this.opts.btnType=='img')? '<img src="'+this.images.eq(i-1).attr('src')+'"/>':i;
+			bHtml += '<li><a href="">' + btnStr + '</a></li>';
 			tHtml += '<a href="">' + this.images.eq(i - 1).attr('alt') + '</a>';
 		};
 		this.buttons = (this.opts.hasBtn)? $('<ol>').addClass('buttons'+(' '+this.opts.btnShape)+' '+((this.opts.btnTxt)?'hasTxt':'')).html(bHtml).appendTo(gallery):null;
-		this.titles = $('<p>').addClass('titles').html(tHtml).appendTo(gallery);
+		if(this.opts.btnType=='img'){
+			btnsWidth = this.width-this.opts.btnsMar,
+			bW = parseInt(btnsWidth/this.mounts)-this.opts.btnMar,
+			bH = this.height*bW/this.width;
+			this.buttons.removeClass('buttons').addClass('img-btns').css({
+				width: btnsWidth,
+				left: this.opts.btnsMar/2,
+				bottom: this.opts.btnMar
+			});
+			this.buttons.find('img').css({
+				width: bW-this.opts.btnBorder,
+				height:bH
+			})
+		}
+		this.titles = (this.opts.hasTitle)? $('<p>').addClass('titles').html(tHtml).appendTo(gallery):null;
 		
 		if(this.opts.hasArrow){
-			var preHtml ='<a href="" class="prev-btn"><</a>',
-				nextHtml = '<a href="" class="next-btn">></a>';
+			var f=(this.opts.arrAni)? '':'no-fade';
+				preHtml ='<a href="" class="prev-btn '+f+'"><</a>',
+				nextHtml = '<a href="" class="next-btn '+f+'">></a>';
 			if(this.opts.arrType==='outside'){
 				this.arrows = $('<div>').addClass('arrows-out').html(preHtml+'<span class="curNum"></span><span>/'+this.mounts+'</span>'+nextHtml).appendTo(gallery);
 			}else{
@@ -122,7 +147,7 @@
 		this.cFixed = this.width;
 		this.timer = 0;
 		this.timeId = null;
-		this.auto = true;
+		this.auto = this.opts.auto;
 	};
 
 	//事件绑定
@@ -156,7 +181,7 @@
 				Event: 'prev',
 				self: self
 			}, this.setBeforeSlide);
-			(self.opts.arrType==='outside') || self.gallery
+			(self.opts.arrType==='outside') || (!self.opts.arrAni) || self.gallery
 				.bind({
 					mouseover: function(e) {
 						self.arrows.fadeIn(300)
@@ -240,17 +265,18 @@
 	//开始滑动之前按钮和标题的更换 
 	Gallery.prototype.alterClassName = function(index) {
 		var b=this.buttons,
+			t=this.titles,
 			arrNum= (this.arrows && (this.opts.arrType==='outside'))? this.arrows.find('.curNum'):null;
 		b && this.buttons.find('a.on').removeClass('on');
-		this.titles.find('.curInfo').removeClass('curInfo');
+		t && this.titles.find('.curInfo').removeClass('curInfo');
 		if (typeof index == 'number') {
 			b && $('a', this.buttons).eq(index).addClass('on')
-			$('a', this.titles).eq(index).addClass('curInfo');
+			t && $('a', this.titles).eq(index).addClass('curInfo');
 			arrNum && arrNum.text(index+1);
 		} else {
 			var next = parseInt(this.begin / this.cFixed);
 			b && $('a', this.buttons).eq(next).addClass('on')
-			$('a', this.titles).eq(next).addClass('curInfo');
+			t && $('a', this.titles).eq(next).addClass('curInfo');
 			arrNum && arrNum.text(next+1);
 		};
 	};
