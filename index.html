@@ -1,36 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Jquery-Gallery : 基于jquery的焦点图组件" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jquery-Gallery by FishBooy</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <title>Jquery-Gallery</title>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/FishBooy/Gallery">View on GitHub</a>
-
-          <h1 id="project_title">Jquery-Gallery</h1>
-          <h2 id="project_tagline">基于jquery的焦点图组件</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/FishBooy/Gallery/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/FishBooy/Gallery/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="wrapper">
+      <header>
+        <h1>Jquery-Gallery</h1>
+        <p>基于jquery的焦点图组件</p>
+        <p class="view"><a href="https://github.com/FishBooy/Gallery">View the Project on GitHub <small>FishBooy/Gallery</small></a></p>
+        <ul>
+          <li><a href="https://github.com/FishBooy/Gallery/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/FishBooy/Gallery/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/FishBooy/Gallery">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <h2>
 <a name="%E5%85%B3%E4%BA%8Egallery" class="anchor" href="#%E5%85%B3%E4%BA%8Egallery"><span class="octicon octicon-link"></span></a>关于gallery:</h2>
 
@@ -45,9 +41,9 @@
 <p><strong>(1)引用源文件(一个css文件和一个js文件)到文档中，当然还要保证jQuery也引进来(而且要在gallery的js文件之前)：</strong></p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/tinyStyles.css"</span><span class="nt">/&gt;</span><span class="c">&lt;!--此为要引用的样式文件--&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/jquery-gallery.css"</span><span class="nt">/&gt;</span><span class="c">&lt;!--此为要引用的样式文件--&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"js/gallery-2.0.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span><span class="c">&lt;!--此处为要引用的js文件--&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"js/jquery-gallery.js"</span><span class="nt">&gt;&lt;/script&gt;</span><span class="c">&lt;!--此处为要引用的js文件--&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 </pre></div>
 
@@ -59,30 +55,19 @@
     <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"img/slider02.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"img/slider03.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/li&gt;</span>
   <span class="nt">&lt;/ul&gt;</span>
-  <span class="nt">&lt;div&gt;&lt;/div&gt;</span> <span class="c">&lt;!--标题下的阴影--&gt;</span>
-  <span class="nt">&lt;p&gt;&lt;/p&gt;</span> <span class="c">&lt;!--包含所有标题，标题内容来源于上面img的alt属性--&gt;</span>
-  <span class="nt">&lt;ol&gt;&lt;/ol&gt;</span> <span class="c">&lt;!--包含所有序号按钮--&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 
-<p><strong>(3)配置组件并初始化：</strong><br>
-组件的初始化有两种方式:<br>
-第一种：在head标签内初始化，但是一定要保证初始化代码在第一步中引用的两个js个文件之后，初始化代码如下：</p>
+<p><strong>(3)配置组件并初始化：</strong>   </p>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-    <span class="c1">//此处类名对应上一步中html中的类名</span>
+<div class="highlight highlight-javascript"><pre><span class="c1">//可以在head标签内初始化：</span>
     <span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">());</span>
-<span class="nt">&lt;/script&gt;</span>
+
+<span class="c1">//也可以在body标签结束之前，初始化代码如下：</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span>
 </pre></div>
 
-<p>第二种：在body标签结束之前，初始化代码如下：</p>
-
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.container'</span><span class="p">).</span><span class="nx">gallery</span><span class="p">();</span><span class="c1">//此处类名对应上一步中html中的类名</span>
-<span class="nt">&lt;/script&gt;</span>
-</pre></div>
-
-<p>最后，还有非常重要的一点，即：指定<code>.container</code>宽度和高度。宽高的指定也有两种方式：<br>
+<p>最后，还有非常重要的一点，即：指定<code>.container</code>的宽度和高度。宽高的指定也有两种方式：<br>
 第一种（推荐）：在你的css文件中或gallery源文件的<code>gallery.css</code>中指定：</p>
 
 <div class="highlight highlight-css"><pre><span class="c">/*宽高不限制*/</span>
@@ -104,16 +89,18 @@
 <a name="%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0" class="anchor" href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="octicon octicon-link"></span></a>配置参数</h2>
 
 <ul>
-<li>width: 取整数值，指定gallery的宽度。</li>
-<li>height: 取整数值，指定gallery的高度。</li>
-<li>shaHeight: 取整数值，表示标题阴影背景的高度，默认高度为36即36px。</li>
-<li>hasArrow: 取布尔值，true代表有方向按钮，false代表没有。默认为true。</li>
-<li>pause: 取整数值，滑动之前的等待时间。默认为2000（2000ms）即2秒。</li>
-<li>btnShape: 字符串，序号按钮的形状。默认为圆形，'square'代表方形。</li>
-<li>btnTxt: 布尔值，true代表按钮含有序号，false代表没有。默认为false。</li>
-<li>duration: 取整数值，滑动步长，数值越大滑动越慢，反之则越快。默认为50。</li>
-<li>onStart: 每次滑动前需要执行的函数。默认<code>function(){}</code>。</li>
-<li>onFinish: 每次滑动结束后的回调函数。默认<code>function(){}</code>。<br>
+<li>width: <em>int</em>，指定gallery的宽度。</li>
+<li>height: <em>int</em>，指定gallery的高度。</li>
+<li>shaHeight: <em>int</em>，表示标题阴影背景的高度，默认高度为36即36px。</li>
+<li>hasArrow: <em>boolean</em>，true代表有方向按钮，false代表没有。默认为true。</li>
+<li>arrType: <em>string</em>，方向按钮的样式类型，分内（'inside'）、外('outside')两种样式，默认为内部样式。</li>
+<li>hasBtn: <em>boolean</em>，是否显示按钮。true-有，false-没有。</li>
+<li>btnShape: <em>string</em>，序号按钮的形状。默认为圆形('circle')，'square'代表方形。</li>
+<li>btnTxt: <em>boolean</em>，true代表按钮含有序号，false代表没有。默认为false。</li>
+<li>duration: <em>int</em>，滑动步长，数值越大滑动越慢，反之则越快。默认为50。</li>
+<li>pause: <em>int</em>，滑动之前的等待时间。默认为2000（2000ms）即2秒。</li>
+<li>onStart: <em>func</em>，每次滑动前需要执行的函数。默认<code>function(){}</code>。</li>
+<li>onFinish: <em>func</em>，每次滑动结束后的回调函数。默认<code>function(){}</code>。<br>
 </li>
 </ul><p><strong>配置示例（一个没有方向按钮且等待时间为5秒的gallery）:</strong></p>
 
@@ -126,16 +113,11 @@
 <p><a href="demo/">DEMO</a></p>
       </section>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Jquery-Gallery maintained by <a href="https://github.com/FishBooy">FishBooy</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
+    <footer>
+      <p>Project maintained by <a href="https://github.com/FishBooy">FishBooy</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
   </body>
 </html>
