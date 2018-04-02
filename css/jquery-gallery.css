@@ -131,10 +131,9 @@ a{
 	color: #fff;
 	font-size: 30px;
 	text-align: center;
-	font-weight: bold;
-	font-family: 宋体, sans-serif;
 	width: 36px;
 	height: 34px;
+	line-height:30px;
 	background: #000;
 	opacity: 0.4;
 	filter:alpha(opacity=40);
