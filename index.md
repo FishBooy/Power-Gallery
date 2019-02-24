@@ -15,8 +15,8 @@ Gallery的使用非常简单，首先下载并解压，然后:
 <script type="text/javascript" src="js/jquery-gallery.js"></script><!--此处为要引用的js文件-->
 </head>
 ```
-
-### (2)写好html结构：
+  
+**(2)写好html结构：**
 
 ```html
 <div class="container"> <!--容器类名没有限制-->
@@ -27,8 +27,8 @@ Gallery的使用非常简单，首先下载并解压，然后:
   </ul>
 </div>
 ```
-
-### (3)配置组件并初始化：
+  
+**(3)配置组件并初始化：**
 
 ```javascript
 //在DOM Ready之后：
