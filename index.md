@@ -1,11 +1,13 @@
-关于gallery:
+## 关于gallery:
+
 gallery是一款基于jQuery的，用于图片浏览的焦点图组件，只包含一个css样式文件和一个js文件。
 关于gallery的编写----它的结构采用的是原型继承的结构（构造函数是Gallery,所有动态属性都在构造函数内由this来指定，所有公共方法及属性都集合在原型对象内）。它的功能执行遵循了普通插件的执行方式（参数配置->主要程序的运行->返回$对象）。
-***
-##如何使用？
-gallery的使用非常简单，首先下载并解压，然后:     
- 
-**(1)引用源文件(一个css文件和一个js文件)到文档中，当然还要保证jQuery也引进来(而且要在gallery的js文件之前)：**
+
+## 如何使用？
+
+gallery的使用非常简单，首先下载并解压，然后:
+**(1)引用源文件(一个css文件和一个js文件)到文档中，当然还要保证jQuery也引进来(而且要在gallery的js文件之前)：
+
 ```html
 <head>
 <link rel="stylesheet" type="text/css" href="css/jquery-gallery.css"/><!--此为要引用的样式文件-->
@@ -13,7 +15,9 @@ gallery的使用非常简单，首先下载并解压，然后:
 <script type="text/javascript" src="js/jquery-gallery.js"></script><!--此处为要引用的js文件-->
 </head>
 ```
-**(2)写好html结构：**
+
+**(2)写好html结构：
+
 ```html
 <div class="container"> <!--容器类名没有限制-->
   <ul> <!--图片列表的个数没有限制-->
@@ -23,31 +27,36 @@ gallery的使用非常简单，首先下载并解压，然后:
   </ul>
 </div>
 ```
-**(3)配置组件并初始化：**   
+
+**(3)配置组件并初始化：
+
 ```javascript
 //在DOM Ready之后：
  $('.container').gallery()
 ```
+
 最后，还有非常重要的一点，即：指定`.container`的宽度和高度。宽高的指定也有两种方式：   
 第一种（推荐）：在你的css文件中或gallery源文件的`gallery.css`中指定：
+
 ```css
 /*宽高不限制*/
 .container{width:360px;height:200px;}
 ```
+
 第二种：在初始化的时候指定，如下：
+
 ```javascript
 $('.container').gallery({
     //宽高不限制
     width:360,
     height:200
 });
-```    
+```
 
-至此，一个焦点图小组件应该可以正常显示在你的页面中了。它包含了标题，方向按钮，水平滚动的动画效果等等，但是如果你想延迟滑动的等待时间，或者想在序号按钮中显示出数字等等，那么你可以参考本文下面的部分：配置参数。    
-    
-***
+至此，一个焦点图小组件应该可以正常显示在你的页面中了。它包含了标题，方向按钮，水平滚动的动画效果等等，但是如果你想延迟滑动的等待时间，或者想在序号按钮中显示出数字等等，那么你可以参考本文下面的部分：配置参数。
 
 ## 配置参数
+
 * **width**: _int_，指定gallery的宽度。
 * **height**: _int_，指定gallery的高度。
 * **hasTitle**: _boolean_，是否显示标题，true-显示，false-不显示。
@@ -63,13 +72,15 @@ $('.container').gallery({
 * **auto**: _boolean_，gallery是否在初始化后自动滑动。
 * **pause**: _int_，滑动之前的等待时间。默认为2000（2000ms）即2秒。
 * **onStart**: _func_，每次滑动前需要执行的函数。默认`function(){}`。
-* **onFinish**: _func_，每次滑动结束后的回调函数。默认`function(){}`。    
+* **onFinish**: _func_，每次滑动结束后的回调函数。默认`function(){}`。
 
 **配置示例（一个没有方向按钮且等待时间为5秒的gallery）:**
+
 ```javascript
 $('.container').gallery({
   hasArrow: false,
   pause: 5000
 })
 ```
+
 <a href="demo/" >==点此查看==DEMO</a>
