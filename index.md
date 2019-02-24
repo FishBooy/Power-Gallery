@@ -6,7 +6,7 @@ gallery是一款基于jQuery的，用于图片浏览的焦点图组件，只包�
 ## 如何使用？
 
 gallery的使用非常简单，首先下载并解压，然后:
-**(1)引用源文件(一个css文件和一个js文件)到文档中，当然还要保证jQuery也引进来(而且要在gallery的js文件之前)：
+**(1)引用源文件(一个css文件和一个js文件)到文档中，当然还要保证jQuery也引进来(而且要在gallery的js文件之前)：**
 
 ```html
 <head>
@@ -16,7 +16,7 @@ gallery的使用非常简单，首先下载并解压，然后:
 </head>
 ```
 
-**(2)写好html结构：
+**(2)写好html结构：**
 
 ```html
 <div class="container"> <!--容器类名没有限制-->
@@ -28,7 +28,7 @@ gallery的使用非常简单，首先下载并解压，然后:
 </div>
 ```
 
-**(3)配置组件并初始化：
+**(3)配置组件并初始化：**
 
 ```javascript
 //在DOM Ready之后：
@@ -83,4 +83,4 @@ $('.container').gallery({
 })
 ```
 
-<a href="demo/" >==点此查看==DEMO</a>
+<a href="demo/" >查看DEMO</a>
