@@ -84,4 +84,4 @@ $('.container').gallery({
 })
 ```
 
-<a href="demo/" >查看DEMO</a>
+[查看DEMO](demo/)
