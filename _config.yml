@@ -2,7 +2,7 @@ title: JQuery-Gallery
 description: 基于jQuery的焦点图组件
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-tactile
+theme: jekyll-theme-modernist
 
 gems:
   - jekyll-mentions
